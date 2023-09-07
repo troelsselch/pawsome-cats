@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using PawsomeCats.Data;
 using PawsomeCats.Data.CatFacts;
+using PawsomeCats.Data.CatImages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +9,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<CatFactService>();
+builder.Services.AddSingleton<CatImageService>();
 
 var app = builder.Build();
 

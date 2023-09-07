@@ -1,0 +1,44 @@
+﻿@page "/randomcatimage"
+@using PawsomeCats.Data.CatImages;
+@inject CatImageService CatImageService;
+
+<PageTitle>Random Cat Image</PageTitle>
+
+<h1>Random Cat Image</h1>
+
+<button class="btn btn-primary" @onclick="NewCatImage">Get the kitty</button>
+
+@if (currentImage is null)
+{
+    <p><em>No image yet, click the button</em></p>
+}
+else
+{
+    <p>
+        <img src="@currentImage.Url" />
+    </p>    
+}
+
+@if (error is not null)
+{
+    <p>Error: @error</p>
+}
+
+@code {
+    private CatImage? currentImage = null;
+    private string? error = null;
+
+    private async Task NewCatImage()
+    {
+        IEnumerable<CatImage> catImages = await CatImageService.GetCatImageAsync();
+
+        if (catImages.Count() < 1)
+        {
+            error = "No images found 😿";
+        }
+        else
+        {
+            currentImage = catImages.First();
+        }
+    }
+}
