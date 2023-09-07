@@ -1,0 +1,56 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.cs]
+csharp_style_namespace_declarations=file_scoped:error
+
+csharp_new_line_before_members_in_object_initializers = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+
+csharp_prefer_braces = true:error
+csharp_style_var_elsewhere = false:error
+csharp_style_var_for_built_in_types = false:error
+csharp_style_var_when_type_is_apparent = false:error
+csharp_style_implicit_object_creation_when_type_is_apparent=false
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+
+csharp_preferred_modifier_order = public,private,internal,protected,static,async,readonly,override,sealed,abstract,new:suggestion
+
+# Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = error
+# Remove unused private memeber
+dotnet_diagnostic.IDE0051.severity = error
+# Remove unused parameter
+dotnet_diagnostic.IDE0060.severity = error
+# Remove unread private members
+dotnet_diagnostic.IDE0052.severity = error
+# Remove unused parameters
+dotnet_code_quality.CA1801.severity = error
+# Remove unused locals
+dotnet_code_quality.CA1804.severity = error
+# Avoid unused private fields
+dotnet_code_quality.CA1823.severity = error
+
+# Suggest to make methods static
+dotnet_diagnostic.CA1822.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
+dotnet_diagnostic.CS1591.severity = none

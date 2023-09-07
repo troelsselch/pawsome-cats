@@ -6,6 +6,8 @@ public class CatFactService
 {
     private string url = "https://cat-fact.herokuapp.com/facts";
 
+    public static string[] strings1 = { "first", "second" };
+
     public async Task<IEnumerable<CatFact>> GetFactsAsync()
     {
         HttpClient client = new HttpClient();
