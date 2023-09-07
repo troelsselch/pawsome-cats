@@ -1,0 +1,43 @@
+﻿@page "/catfacts"
+@using PawsomeCats.Data.CatFacts;
+@inject CatFactService CatFactService
+
+<PageTitle>Cat facts</PageTitle>
+
+<h1>Cat Facts</h1>
+
+<p>Enjoy these cat fatcs:</p>
+
+@if (facts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fact in facts)
+            {
+                <tr>
+                    <td>@fact.Id</td>
+                    <td>@fact.Text</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<CatFact>? facts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        facts = await CatFactService.GetFactsAsync();
+    }
+}
